@@ -1,5 +1,5 @@
 {
-    "pluginAlias": "ContactSW",
+    "pluginAlias": "IrigatorSW",
     "pluginType": "accessory",
     "singular": false,
     "schema": {

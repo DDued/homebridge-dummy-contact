@@ -6,11 +6,11 @@ module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
   HomebridgeAPI = homebridge;
-  homebridge.registerAccessory("homebridge-dummy-contact", "ContactSW", ContactSW);
+  homebridge.registerAccessory("homebridge-dummy-contact", "IrigatorSW", IrigatorSW);
 };
 
 
-function ContactSW (log, config) {
+function IrigatorSW (log, config) {
   this.log = log;
   this.name = config.name;
   this.stateful = config.stateful;
@@ -25,8 +25,8 @@ function ContactSW (log, config) {
   
 	this._informationService = new Service.AccessoryInformation();
 	this._informationService
-			.setCharacteristic(Characteristic.Manufacturer, "ContactSW")
-			.setCharacteristic(Characteristic.Model, "ContactSW")
+			.setCharacteristic(Characteristic.Manufacturer, "IrigatorSW")
+			.setCharacteristic(Characteristic.Model, "IrigatorSW")
 			.setCharacteristic(Characteristic.SerialNumber, this.serial);
 
 
@@ -64,7 +64,7 @@ function ContactSW (log, config) {
   }
 }
 
-ContactSW.prototype.getServices = function() {
+IrigatorSW.prototype.getServices = function() {
   if (this.contact) {
     return [this._service, this._contact, this._informationService];
   } else {
@@ -72,7 +72,7 @@ ContactSW.prototype.getServices = function() {
   }
 };
 
-ContactSW.prototype._setOn = function(on, callback, context) {
+IrigatorSW.prototype._setOn = function(on, callback, context) {
   if (this.debug) {
   	this.log("Called to set switch to", on);
   }
