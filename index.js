@@ -6,11 +6,11 @@ module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
   HomebridgeAPI = homebridge;
-  homebridge.registerAccessory("homebridge-dummy-contact", "DummySwitch", DummySwitch);
+  homebridge.registerAccessory("homebridge-dummy-contact", "DummySwitchC", DummySwitchC);
 };
 
 
-function DummySwitch(log, config) {
+function DummySwitchC(log, config) {
   this.log = log;
   this.name = config.name;
   this.stateful = config.stateful;
@@ -25,8 +25,8 @@ function DummySwitch(log, config) {
   
 	this._informationService = new Service.AccessoryInformation();
 	this._informationService
-			.setCharacteristic(Characteristic.Manufacturer, "DummySwitch")
-			.setCharacteristic(Characteristic.Model, "DummySwitch")
+			.setCharacteristic(Characteristic.Manufacturer, "DummySwitchC")
+			.setCharacteristic(Characteristic.Model, "DummySwitchC")
 			.setCharacteristic(Characteristic.SerialNumber, this.serial);
 
 
@@ -64,7 +64,7 @@ function DummySwitch(log, config) {
   }
 }
 
-DummySwitch.prototype.getServices = function() {
+DummySwitchC.prototype.getServices = function() {
   if (this.contact) {
     return [this._service, this._contact, this._informationService];
   } else {
@@ -72,7 +72,7 @@ DummySwitch.prototype.getServices = function() {
   }
 };
 
-DummySwitch.prototype._setOn = function(on, callback, context) {
+DummySwitchC.prototype._setOn = function(on, callback, context) {
   if (this.debug) {
   	this.log("Called to set switch to", on);
   }
