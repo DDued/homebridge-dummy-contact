@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/NorthernMan54/homebridge-dummy-contact.git"
+    "url": "git://github.com/DDued/homebridge-contactSW.git"
   },
   "bugs": {
     "url": "http://github.com/NorthernMan54/homebridge-dummy-contact/issues"
