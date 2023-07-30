@@ -6,11 +6,11 @@ module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
   HomebridgeAPI = homebridge;
-  homebridge.registerAccessory("homebridge-dummy-contact", "Peter", Peter);
+  homebridge.registerAccessory("homebridge-dummy-contact", "PumpenPeter", PumpenPeter);
 };
 
 
-function Peter (log, config) {
+function PumpenPeter (log, config) {
   this.log = log;
   this.name = config.name;
   this.stateful = config.stateful;
@@ -25,8 +25,8 @@ function Peter (log, config) {
   
 	this._informationService = new Service.AccessoryInformation();
 	this._informationService
-			.setCharacteristic(Characteristic.Manufacturer, "Peter")
-			.setCharacteristic(Characteristic.Model, "Peter")
+			.setCharacteristic(Characteristic.Manufacturer, "PumpenPeter")
+			.setCharacteristic(Characteristic.Model, "PumpenPeter")
 			.setCharacteristic(Characteristic.SerialNumber, this.serial);
 
 
@@ -64,7 +64,7 @@ function Peter (log, config) {
   }
 }
 
-Peter.prototype.getServices = function() {
+PumpenPeter.prototype.getServices = function() {
   if (this.contact) {
     return [this._service, this._contact, this._informationService];
   } else {
@@ -72,7 +72,7 @@ Peter.prototype.getServices = function() {
   }
 };
 
-Peter.prototype._setOn = function(on, callback, context) {
+PumpenPeter.prototype._setOn = function(on, callback, context) {
   if (this.debug) {
   	this.log("Called to set switch to", on);
   }
